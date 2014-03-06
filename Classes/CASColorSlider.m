@@ -46,11 +46,18 @@
     CGFloat labelHeight = 20.0f;
     CGFloat halfWidth = CGRectGetWidth(self.bounds) / 2.0f;
     
-    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, halfWidth, labelHeight)];
+    UIFont *labelFont = [UIFont systemFontOfSize:14.0f];
+    UIColor *labelColor = [UIColor colorWithWhite:0.22f alpha:1.0f];
+    
+    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(4, 0, halfWidth, labelHeight)];
+    self.nameLabel.font = labelFont;
+    self.nameLabel.textColor = labelColor;
     self.valueLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:self.nameLabel];
     
-    self.valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(halfWidth, 0, halfWidth, labelHeight)];
+    self.valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(halfWidth-4, 0, halfWidth, labelHeight)];
+    self.valueLabel.font = labelFont;
+    self.valueLabel.textColor = labelColor;
     self.valueLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:self.valueLabel];
     
@@ -62,8 +69,8 @@
     [self addSubview:self.slider];
     
     self.gradientLayer = [CAGradientLayer layer];
-    self.gradientLayer.frame = CGRectInset(self.slider.bounds, 4.0f, 8.0f);
-    self.gradientLayer.cornerRadius = 8.0f;
+    self.gradientLayer.frame = CGRectInset(self.slider.bounds, 4.0f, 18.0f);
+    // self.gradientLayer.cornerRadius = 8.0f;
     self.gradientLayer.masksToBounds = YES;
     self.gradientLayer.startPoint = CGPointMake(0.0, 0.5);
     self.gradientLayer.endPoint = CGPointMake(1.0, 0.5);
