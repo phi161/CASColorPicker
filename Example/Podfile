@@ -1,0 +1,1 @@
+pod "CASColorPicker", :path => "../CASColorPicker.podspec"
