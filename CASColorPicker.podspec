@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license             = 'MIT'
   s.authors             = { "phi" => "phi@carminestudios.se" }
   s.platform            = :ios, '7.0'
-  s.source              = { :git => "https://github.com/phi161/CASColorPicker.git", :tag => s.version.to_s }
+  s.source              = { :git => "https://github.com/phi161/CASColorPicker.git", :commit => :head }
   s.source_files        = 'Classes'
   s.framework           = 'QuartzCore'
   s.requires_arc        = true
