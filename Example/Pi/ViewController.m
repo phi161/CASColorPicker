@@ -11,16 +11,19 @@
 #import "InfoViewController.h"
 #import "CASPIView.h"
 #import "UIColor+CASAdditions.h"
+@import MessageUI;
 
-@interface ViewController ()
+@interface ViewController () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *infoButton;
+@property (nonatomic, weak) IBOutlet UIButton *mailButton;
 @property (nonatomic, strong) CASPIView *piView;
 @property (nonatomic, strong) CASColorModel *colorModel;
 @property (nonatomic, strong) UIScrollView *piScrollView;
 
 -(IBAction)numberButtonTapped:(id)sender;
 -(IBAction)infoButtonTapped:(id)sender;
+-(IBAction)mailButtonTapped:(id)sender;
 -(void)setButtonTitles;
 -(void)setupColors;
 -(void)setupPiView;
@@ -42,6 +45,8 @@
     [self setupColors];
     
     [self setupPiView];
+    
+    self.mailButton.alpha = [MFMailComposeViewController canSendMail]? 1.0f : 0.0f;
 }
 
 
@@ -166,6 +171,26 @@
     [self presentViewController:infoViewController animated:YES completion:nil];
 }
 
+
+-(IBAction)mailButtonTapped:(id)sender
+{
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+        mailComposeViewController.mailComposeDelegate = self;
+        [mailComposeViewController setSubject:@"π RGB"];
+        [mailComposeViewController setMessageBody:[self.colorModel stringRepresentation] isHTML:NO];
+        [self presentViewController:mailComposeViewController animated:YES completion:nil];
+    }
+}
+
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 #pragma mark - Setup
 
 -(void)setButtonTitles
@@ -182,6 +207,7 @@
         currentY+=buttonHeight;
     }
     
+    self.mailButton.frame = CGRectMake(10, currentY-10, 20, 20);
     self.infoButton.frame = CGRectMake(CGRectGetWidth(self.view.bounds)-30, currentY-10, 20, 20);
     
     // Set the localized text

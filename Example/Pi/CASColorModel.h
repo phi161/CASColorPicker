@@ -26,4 +26,6 @@
 
 -(NSArray *)colorModelAsArray;
 
+-(NSString *)stringRepresentation;
+
 @end
