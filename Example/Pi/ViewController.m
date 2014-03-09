@@ -42,6 +42,7 @@
     self.piView = [[CASPIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
     self.piView.lineWidth = 1;
     self.piView.colorModel = self.colorModel;
+    self.piView.alpha = 0.0f;
     [self.view addSubview:self.piView];
 }
 
@@ -68,15 +69,30 @@
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft)
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
     {
-        self.piView.alpha = 1.0f;
+        [UIView animateWithDuration:duration animations:^{
+            self.piView.alpha = 1.0f;
+            for (int i = 1; i<=10; i++)
+            {
+                [self.view viewWithTag:i].alpha = 0.0f;
+            }
+        } completion:^(BOOL finished) {
+            //
+        }];
     }
-    else
+    else if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
     {
-        self.piView.alpha = 0.0f;
+        [UIView animateWithDuration:duration animations:^{
+            self.piView.alpha = 0.0f;
+            for (int i = 1; i<=10; i++)
+            {
+                [self.view viewWithTag:i].alpha = 1.0f;
+            }
+        } completion:^(BOOL finished) {
+            //
+        }];
     }
-    
 }
 
 
