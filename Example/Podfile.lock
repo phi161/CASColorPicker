@@ -1,0 +1,15 @@
+PODS:
+  - CASColorPicker (0.0.1)
+
+DEPENDENCIES:
+  - CASColorPicker (from `https://github.com/phi161/CASColorPicker.git`, commit `9d82eabf4b01eddb96fb682b346c786897d5426b`)
+
+EXTERNAL SOURCES:
+  CASColorPicker:
+    :commit: 9d82eabf4b01eddb96fb682b346c786897d5426b
+    :git: https://github.com/phi161/CASColorPicker.git
+
+SPEC CHECKSUMS:
+  CASColorPicker: 1006a75799557f3bdbd7dc127d2f810a3b55404f
+
+COCOAPODS: 0.29.0
