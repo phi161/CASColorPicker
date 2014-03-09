@@ -170,6 +170,21 @@
 
 -(void)setButtonTitles
 {
+    // Layout the buttons evenly based on the screen height
+    CGFloat buttonHeight = (CGRectGetHeight(self.view.bounds) - 40) / 10;
+    
+    ((UIButton *)[self.view viewWithTag:10]).frame = CGRectMake(0, 20, CGRectGetWidth(self.view.bounds), buttonHeight);
+    
+    CGFloat currentY = 20 + buttonHeight;
+    for (int i = 1; i < 10; i++)
+    {
+        ((UIButton *)[self.view viewWithTag:i]).frame = CGRectMake(0, currentY, CGRectGetWidth(self.view.bounds), buttonHeight);
+        currentY+=buttonHeight;
+    }
+    
+    self.infoButton.frame = CGRectMake(CGRectGetWidth(self.view.bounds)-30, currentY-10, 20, 20);
+    
+    // Set the localized text
     [(UIButton *)[self.view viewWithTag:10] setTitle:NSLocalizedString(@"zero", @"0") forState:UIControlStateNormal];
     [(UIButton *)[self.view viewWithTag:1] setTitle:NSLocalizedString(@"one", @"1") forState:UIControlStateNormal];
     [(UIButton *)[self.view viewWithTag:2] setTitle:NSLocalizedString(@"two", @"2") forState:UIControlStateNormal];
