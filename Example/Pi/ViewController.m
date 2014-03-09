@@ -17,11 +17,13 @@
 @property (nonatomic, weak) IBOutlet UIButton *infoButton;
 @property (nonatomic, strong) CASPIView *piView;
 @property (nonatomic, strong) CASColorModel *colorModel;
+@property (nonatomic, strong) UIScrollView *piScrollView;
 
 -(IBAction)numberButtonTapped:(id)sender;
 -(IBAction)infoButtonTapped:(id)sender;
 -(void)setButtonTitles;
 -(void)setupColors;
+-(void)setupPiView;
 -(void)tintViewWithWithTag:(NSUInteger)tag animated:(BOOL)animated;
 
 @end
@@ -39,11 +41,9 @@
 
     [self setupColors];
     
-    self.piView = [[CASPIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
-    self.piView.lineWidth = 1;
-    self.piView.colorModel = self.colorModel;
-    [self.view addSubview:self.piView];
+    [self setupPiView];
 }
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -68,15 +68,30 @@
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft)
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
     {
-        self.piView.alpha = 1.0f;
+        [UIView animateWithDuration:duration animations:^{
+            self.piScrollView.alpha = 1.0f;
+            for (int i = 1; i<=10; i++)
+            {
+                [self.view viewWithTag:i].alpha = 0.0f;
+            }
+        } completion:^(BOOL finished) {
+            //
+        }];
     }
-    else
+    else if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
     {
-        self.piView.alpha = 0.0f;
+        [UIView animateWithDuration:duration animations:^{
+            self.piScrollView.alpha = 0.0f;
+            for (int i = 1; i<=10; i++)
+            {
+                [self.view viewWithTag:i].alpha = 1.0f;
+            }
+        } completion:^(BOOL finished) {
+            //
+        }];
     }
-    
 }
 
 
@@ -182,6 +197,36 @@
     self.colorModel.colorSeven = [UIColor lightGrayColor];
     self.colorModel.colorEight = [UIColor grayColor];
     self.colorModel.colorNine = [UIColor blackColor];
+}
+
+
+-(void)setupPiView
+{
+    // The pi view
+    CGFloat margin = 40.0f;
+    self.piView = [[CASPIView alloc] initWithFrame:CGRectMake(0, margin, 3000, CGRectGetWidth(self.view.bounds)-2*margin)];
+    self.piView.lineWidth = 1;
+    self.piView.colorModel = self.colorModel;
+    
+    // The scroll view that hosts the pi view
+    self.piScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetHeight(self.view.bounds), CGRectGetWidth(self.view.bounds))];
+    self.piScrollView.alpha = 0.0f;
+    self.piScrollView.contentSize = self.piView.bounds.size;
+    [self.piScrollView addSubview:self.piView];
+    
+    // The pi letter view
+    UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(-200, 0, 200, CGRectGetWidth(self.view.bounds))];
+    headerView.image = [UIImage imageNamed:@"pi.png"];
+    headerView.contentMode = UIViewContentModeCenter;
+    [self.piScrollView addSubview:headerView];
+    
+    // The infinity
+    UIImageView *footerView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.piView.bounds), 0, 200, CGRectGetWidth(self.view.bounds))];
+    footerView.image = [UIImage imageNamed:@"infinity.png"];
+    footerView.contentMode = UIViewContentModeCenter;
+    [self.piScrollView addSubview:footerView];
+    
+    [self.view addSubview:self.piScrollView];
 }
 
 
