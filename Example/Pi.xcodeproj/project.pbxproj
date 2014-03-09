@@ -22,6 +22,21 @@
 		CF7AB6DF18CB778200E8547D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7AB6C118CB778200E8547D /* UIKit.framework */; };
 		CF7AB6E718CB778200E8547D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF7AB6E518CB778200E8547D /* InfoPlist.strings */; };
 		CF7AB6E918CB778200E8547D /* PiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7AB6E818CB778200E8547D /* PiTests.m */; };
+		CFB60D8B18CCCDAD0094ADEF /* 0.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D7C18CCCDAD0094ADEF /* 0.wav */; };
+		CFB60D8C18CCCDAD0094ADEF /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D7D18CCCDAD0094ADEF /* 1.wav */; };
+		CFB60D8D18CCCDAD0094ADEF /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D7E18CCCDAD0094ADEF /* 10.wav */; };
+		CFB60D8E18CCCDAD0094ADEF /* 11.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D7F18CCCDAD0094ADEF /* 11.wav */; };
+		CFB60D8F18CCCDAD0094ADEF /* 13.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8018CCCDAD0094ADEF /* 13.wav */; };
+		CFB60D9018CCCDAD0094ADEF /* 14.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8118CCCDAD0094ADEF /* 14.wav */; };
+		CFB60D9118CCCDAD0094ADEF /* 15.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8218CCCDAD0094ADEF /* 15.wav */; };
+		CFB60D9218CCCDAD0094ADEF /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8318CCCDAD0094ADEF /* 2.wav */; };
+		CFB60D9318CCCDAD0094ADEF /* 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8418CCCDAD0094ADEF /* 3.wav */; };
+		CFB60D9418CCCDAD0094ADEF /* 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8518CCCDAD0094ADEF /* 4.wav */; };
+		CFB60D9518CCCDAD0094ADEF /* 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8618CCCDAD0094ADEF /* 5.wav */; };
+		CFB60D9618CCCDAD0094ADEF /* 6.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8718CCCDAD0094ADEF /* 6.wav */; };
+		CFB60D9718CCCDAD0094ADEF /* 7.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8818CCCDAD0094ADEF /* 7.wav */; };
+		CFB60D9818CCCDAD0094ADEF /* 8.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8918CCCDAD0094ADEF /* 8.wav */; };
+		CFB60D9918CCCDAD0094ADEF /* 9.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFB60D8A18CCCDAD0094ADEF /* 9.wav */; };
 		CFEBDDCC18CB88FA00741540 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFEBDDCE18CB88FA00741540 /* Localizable.strings */; };
 		CFEBDDD818CB8F4300741540 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEBDDD618CB8F4300741540 /* InfoViewController.m */; };
 		CFEBDDD918CB8F4300741540 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFEBDDD718CB8F4300741540 /* InfoViewController.xib */; };
@@ -60,6 +75,21 @@
 		CF7AB6E418CB778200E8547D /* PiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PiTests-Info.plist"; sourceTree = "<group>"; };
 		CF7AB6E618CB778200E8547D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF7AB6E818CB778200E8547D /* PiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PiTests.m; sourceTree = "<group>"; };
+		CFB60D7C18CCCDAD0094ADEF /* 0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.wav; sourceTree = "<group>"; };
+		CFB60D7D18CCCDAD0094ADEF /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
+		CFB60D7E18CCCDAD0094ADEF /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
+		CFB60D7F18CCCDAD0094ADEF /* 11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 11.wav; sourceTree = "<group>"; };
+		CFB60D8018CCCDAD0094ADEF /* 13.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 13.wav; sourceTree = "<group>"; };
+		CFB60D8118CCCDAD0094ADEF /* 14.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 14.wav; sourceTree = "<group>"; };
+		CFB60D8218CCCDAD0094ADEF /* 15.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 15.wav; sourceTree = "<group>"; };
+		CFB60D8318CCCDAD0094ADEF /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = "<group>"; };
+		CFB60D8418CCCDAD0094ADEF /* 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 3.wav; sourceTree = "<group>"; };
+		CFB60D8518CCCDAD0094ADEF /* 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 4.wav; sourceTree = "<group>"; };
+		CFB60D8618CCCDAD0094ADEF /* 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 5.wav; sourceTree = "<group>"; };
+		CFB60D8718CCCDAD0094ADEF /* 6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 6.wav; sourceTree = "<group>"; };
+		CFB60D8818CCCDAD0094ADEF /* 7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 7.wav; sourceTree = "<group>"; };
+		CFB60D8918CCCDAD0094ADEF /* 8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 8.wav; sourceTree = "<group>"; };
+		CFB60D8A18CCCDAD0094ADEF /* 9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 9.wav; sourceTree = "<group>"; };
 		CFEBDDD018CB895800741540 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CFEBDDD118CB896800741540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CFEBDDD218CB89B800741540 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -161,6 +191,7 @@
 		CF7AB6C418CB778200E8547D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CFB60D7B18CCCDAD0094ADEF /* sounds */,
 				CF7AB6C518CB778200E8547D /* Pi-Info.plist */,
 				CFEBDDCE18CB88FA00741540 /* Localizable.strings */,
 				CF7AB6C618CB778200E8547D /* InfoPlist.strings */,
@@ -186,6 +217,28 @@
 				CF7AB6E518CB778200E8547D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFB60D7B18CCCDAD0094ADEF /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				CFB60D7C18CCCDAD0094ADEF /* 0.wav */,
+				CFB60D7D18CCCDAD0094ADEF /* 1.wav */,
+				CFB60D7E18CCCDAD0094ADEF /* 10.wav */,
+				CFB60D7F18CCCDAD0094ADEF /* 11.wav */,
+				CFB60D8018CCCDAD0094ADEF /* 13.wav */,
+				CFB60D8118CCCDAD0094ADEF /* 14.wav */,
+				CFB60D8218CCCDAD0094ADEF /* 15.wav */,
+				CFB60D8318CCCDAD0094ADEF /* 2.wav */,
+				CFB60D8418CCCDAD0094ADEF /* 3.wav */,
+				CFB60D8518CCCDAD0094ADEF /* 4.wav */,
+				CFB60D8618CCCDAD0094ADEF /* 5.wav */,
+				CFB60D8718CCCDAD0094ADEF /* 6.wav */,
+				CFB60D8818CCCDAD0094ADEF /* 7.wav */,
+				CFB60D8918CCCDAD0094ADEF /* 8.wav */,
+				CFB60D8A18CCCDAD0094ADEF /* 9.wav */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,9 +322,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFB60D9318CCCDAD0094ADEF /* 3.wav in Resources */,
+				CFB60D9218CCCDAD0094ADEF /* 2.wav in Resources */,
+				CFB60D8F18CCCDAD0094ADEF /* 13.wav in Resources */,
 				CF7AB6D618CB778200E8547D /* Images.xcassets in Resources */,
+				CFB60D8C18CCCDAD0094ADEF /* 1.wav in Resources */,
+				CFB60D8E18CCCDAD0094ADEF /* 11.wav in Resources */,
+				CFB60D9618CCCDAD0094ADEF /* 6.wav in Resources */,
+				CFB60D9518CCCDAD0094ADEF /* 5.wav in Resources */,
+				CFB60D9818CCCDAD0094ADEF /* 8.wav in Resources */,
+				CFB60D9118CCCDAD0094ADEF /* 15.wav in Resources */,
+				CFB60D9018CCCDAD0094ADEF /* 14.wav in Resources */,
 				CFEBDDCC18CB88FA00741540 /* Localizable.strings in Resources */,
+				CFB60D9418CCCDAD0094ADEF /* 4.wav in Resources */,
+				CFB60D9718CCCDAD0094ADEF /* 7.wav in Resources */,
+				CFB60D9918CCCDAD0094ADEF /* 9.wav in Resources */,
+				CFB60D8D18CCCDAD0094ADEF /* 10.wav in Resources */,
 				CF7AB6C818CB778200E8547D /* InfoPlist.strings in Resources */,
+				CFB60D8B18CCCDAD0094ADEF /* 0.wav in Resources */,
 				CFEBDDD918CB8F4300741540 /* InfoViewController.xib in Resources */,
 				CF7AB6D118CB778200E8547D /* Main.storyboard in Resources */,
 			);

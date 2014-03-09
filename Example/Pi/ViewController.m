@@ -12,6 +12,7 @@
 #import "CASPIView.h"
 #import "UIColor+CASAdditions.h"
 @import MessageUI;
+@import AudioToolbox;
 
 @interface ViewController () <MFMailComposeViewControllerDelegate>
 
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) CASPIView *piView;
 @property (nonatomic, strong) CASColorModel *colorModel;
 @property (nonatomic, strong) UIScrollView *piScrollView;
+@property (nonatomic, assign) SystemSoundID soundID;
 
 -(IBAction)numberButtonTapped:(id)sender;
 -(IBAction)infoButtonTapped:(id)sender;
@@ -28,6 +30,7 @@
 -(void)setupColors;
 -(void)setupPiView;
 -(void)tintViewWithWithTag:(NSUInteger)tag animated:(BOOL)animated;
+-(void)playRandomSound;
 
 @end
 
@@ -39,9 +42,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     [self setButtonTitles];
-
+    
     [self setupColors];
     
     [self setupPiView];
@@ -55,7 +58,7 @@
     [super viewDidAppear:animated];
     
     [self becomeFirstResponder];
-
+    
     for (int i = 1; i<=10; i++)
     {
         [self tintViewWithWithTag:i animated:YES];
@@ -104,6 +107,8 @@
 
 -(IBAction)numberButtonTapped:(id)sender
 {
+    [self playRandomSound];
+
     NSUInteger tag = [sender tag] > 9? 0 : [sender tag];
     CASColorPickerView *colorPicker = [CASColorPickerView colorPickerViewWithColor:self.colorModel.colorModelAsArray[tag]];
     [colorPicker showWithCompletionBlock:^(UIColor *selectedColor, BOOL didCancel) {
@@ -146,7 +151,7 @@
                 default:
                     break;
             }
-
+            
             [self tintViewWithWithTag:[sender tag] animated:YES];
             
             [_piView render];
@@ -164,7 +169,7 @@
     [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     InfoViewController *infoViewController = [[InfoViewController alloc] initWithNibName:nil bundle:nil];
     infoViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     infoViewController.view.backgroundColor = [UIColor colorWithPatternImage:image];
@@ -276,7 +281,7 @@
     NSUInteger normalizedTag = tag > 9? 0 : tag;
     UIButton *button = (UIButton *)[self.view viewWithTag:tag];
     UIColor *color = self.colorModel.colorModelAsArray[normalizedTag];
-
+    
     // Animate
     [button setUserInteractionEnabled:NO];
     [UIView animateWithDuration:animated? 2.0f: 0.0f delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -309,7 +314,7 @@
         self.colorModel.colorSeven = [UIColor randomColor];
         self.colorModel.colorEight = [UIColor randomColor];
         self.colorModel.colorNine = [UIColor randomColor];
-
+        
         for (int i = 1; i<=10; i++)
         {
             [self tintViewWithWithTag:i animated:YES];
@@ -317,6 +322,23 @@
         
         [self.piView render];
     }
+}
+
+
+#pragma mark - Audio
+
+-(void)playRandomSound
+{
+    NSString *randomFile = [NSString stringWithFormat:@"%i", arc4random_uniform(15)];
+    NSURL *soundURL = [[NSBundle mainBundle] URLForResource:randomFile withExtension:@"wav"];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &_soundID);
+    AudioServicesPlaySystemSound (_soundID);
+}
+
+
+-(void)dealloc
+{
+    AudioServicesDisposeSystemSoundID(_soundID);
 }
 
 
