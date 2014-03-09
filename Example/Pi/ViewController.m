@@ -178,6 +178,7 @@
     {
         MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
         mailComposeViewController.mailComposeDelegate = self;
+        [mailComposeViewController setSubject:@"π RGB"];
         [mailComposeViewController setMessageBody:[self.colorModel stringRepresentation] isHTML:NO];
         [self presentViewController:mailComposeViewController animated:YES completion:nil];
     }
