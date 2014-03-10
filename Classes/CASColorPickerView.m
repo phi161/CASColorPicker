@@ -305,6 +305,7 @@
     
     [UIView animateWithDuration:0.3
                      animations: ^{
+                         self.superview.alpha = 0.0f;
                          self.alpha = 0.0f;
                          self.transform = CGAffineTransformMakeScale(0.3, 0.3);
                      }
@@ -375,7 +376,7 @@
     self.completionBlock = [completionBlock copy];
     
     UIView *pickerBackgroundView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [pickerBackgroundView setBackgroundColor:[UIColor clearColor]];
+    [pickerBackgroundView setBackgroundColor:[UIColor colorWithWhite:0.7 alpha:0.95]];
     [pickerBackgroundView setUserInteractionEnabled:YES];
     [pickerBackgroundView addSubview:self];
     
