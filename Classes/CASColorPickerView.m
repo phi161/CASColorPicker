@@ -34,7 +34,7 @@
 @property (nonatomic, strong) CASColorSlider *brightnessSlider;
 
 
-@property (nonatomic, strong) CASColorSlider *alphaSlider;
+// @property (nonatomic, strong) CASColorSlider *alphaSlider;
 
 @property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UIButton *okButton;
@@ -67,7 +67,7 @@
     [self removeObserver:self.saturationSlider forKeyPath:kColorProperty context:NULL];
     [self removeObserver:self.brightnessSlider forKeyPath:kColorProperty context:NULL];
 
-    [self removeObserver:self.alphaSlider forKeyPath:kColorProperty context:NULL];
+    // [self removeObserver:self.alphaSlider forKeyPath:kColorProperty context:NULL];
 }
 
 
@@ -93,7 +93,7 @@
 
 +(instancetype)colorPickerViewWithColor:(UIColor *)color
 {
-    return [[CASColorPickerView alloc] initWithFrame:CGRectMake(0, 0, 300, 400) color:color];
+    return [[CASColorPickerView alloc] initWithFrame:CGRectMake(0, 0, 300, 340) color:color];
 }
 
 
@@ -162,7 +162,7 @@
                              ];
     [transparentView.layer insertSublayer:gradientLayer atIndex:0];
 
-    UIFont *titleFont = [UIFont systemFontOfSize:16.0f];
+    UIFont *titleFont = [UIFont systemFontOfSize:18.0f];
     UIColor *titleColor = [UIColor colorWithWhite:0.1f alpha:1.0f];
     
     UILabel *rgbTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0*titleWidth, 0, titleWidth, titleHeight)];
@@ -245,6 +245,7 @@
     [self addObserver:self.brightnessSlider forKeyPath:kColorProperty options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:NULL];
     self.brightnessSlider.value = [self.color brightness];
 
+    /*
     // Alpha slider
     self.alphaSlider = [[CASColorSlider alloc] initWithFrame:CGRectMake(colorPanelMargin, currentY, CGRectGetWidth(self.bounds)-2*colorPanelMargin, sliderHeight)];
     self.alphaSlider.backgroundColor = [UIColor whiteColor];
@@ -254,6 +255,7 @@
     self.alphaSlider.value = [self.color alpha];
     [self addSubview:self.alphaSlider];
     currentY += CGRectGetHeight(self.alphaSlider.frame);
+    //*/
     
     // Cancel button
     self.cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -312,7 +314,7 @@
         sender == self.blueSlider
         )
     {
-        self.color = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:self.alphaSlider.value];
+        self.color = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0f];
         
         // Update the HSB panel
         self.hueSlider.value = [self.color hue];
@@ -321,7 +323,7 @@
     }
     else
     {
-        self.color = [UIColor colorWithHue:self.hueSlider.value saturation:self.saturationSlider.value brightness:self.brightnessSlider.value alpha:self.alphaSlider.value];
+        self.color = [UIColor colorWithHue:self.hueSlider.value saturation:self.saturationSlider.value brightness:self.brightnessSlider.value alpha:1.0f];
         
         // Update the RGB panel
         self.redSlider.value = [self.color red];
