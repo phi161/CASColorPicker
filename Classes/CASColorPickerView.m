@@ -367,7 +367,7 @@
     self.completionBlock = [completionBlock copy];
     
     UIView *pickerBackgroundView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [pickerBackgroundView setBackgroundColor:[UIColor colorWithWhite:0.7 alpha:0.95]];
+    [pickerBackgroundView setBackgroundColor:[UIColor colorWithWhite:0.8f alpha:0.0f]];
     [pickerBackgroundView setUserInteractionEnabled:YES];
     [pickerBackgroundView addSubview:self];
     
@@ -378,9 +378,10 @@
     [win addSubview:pickerBackgroundView];
     
     [UIView animateWithDuration:0.3 animations: ^{
-                         self.alpha = 1.0f;
-                         self.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                     }];
+        [pickerBackgroundView setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:0.95]];
+        self.alpha = 1.0f;
+        self.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    }];
 }
 
 
