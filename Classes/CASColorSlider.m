@@ -128,13 +128,10 @@
 // Setting the value of the control updates the internal GUI as well
 -(void)setValue:(CGFloat)value
 {
-    if (_value != value)
-    {
-        _value = value;
-        
-        self.slider.value = value;
-        self.valueLabel.text = self.stringValue;
-    }
+    _value = value;
+    
+    self.slider.value = value;
+    self.valueLabel.text = self.stringValue;
 }
 
 
