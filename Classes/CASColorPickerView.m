@@ -131,7 +131,7 @@
     // Horizontal Picker
     CGFloat titleWidth = 80.0f;
     CGFloat titleHeight = 50.0f;
-    self.numberOfPanels = 3;
+    self.numberOfPanels = 2;
     self.scrollOffset = (CGRectGetWidth(self.bounds)-titleWidth)/2;
 
     self.pickerScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, currentY, CGRectGetWidth(self.bounds), titleHeight)];
@@ -178,13 +178,6 @@
     hsbTitleLabel.text = @"HSB";
     hsbTitleLabel.textAlignment = NSTextAlignmentCenter;
     [self.pickerScrollView addSubview:hsbTitleLabel];
-    
-    UILabel *titleLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(2*titleWidth, 0, titleWidth, titleHeight)];
-    titleLabel1.font = titleFont;
-    titleLabel1.textColor = titleColor;
-    titleLabel1.text = @"HEX";
-    titleLabel1.textAlignment = NSTextAlignmentCenter;
-    [self.pickerScrollView addSubview:titleLabel1];
     
     // Scrollview
     self.colorPanelScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, currentY, CGRectGetWidth(self.bounds), 180)];
@@ -251,13 +244,7 @@
     [hsbView addSubview:self.brightnessSlider];
     [self addObserver:self.brightnessSlider forKeyPath:kColorProperty options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:NULL];
     self.brightnessSlider.value = [self.color brightness];
-    
-    // Test
-    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(colorPanelMargin+2*CGRectGetWidth(self.colorPanelScrollView.bounds), 0, CGRectGetWidth(self.colorPanelScrollView.bounds)-2*colorPanelMargin, CGRectGetHeight(self.colorPanelScrollView.bounds))];
-    testView.backgroundColor = [UIColor purpleColor];
-    [self.colorPanelScrollView addSubview:testView];
 
-    
     // Alpha slider
     self.alphaSlider = [[CASColorSlider alloc] initWithFrame:CGRectMake(colorPanelMargin, currentY, CGRectGetWidth(self.bounds)-2*colorPanelMargin, sliderHeight)];
     self.alphaSlider.backgroundColor = [UIColor whiteColor];
