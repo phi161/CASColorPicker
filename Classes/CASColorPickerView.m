@@ -262,6 +262,7 @@
     self.cancelButton.layer.borderWidth = 0.5f;
     self.cancelButton.layer.borderColor = separatorColor.CGColor;
     [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [self.cancelButton.titleLabel setFont:[UIFont systemFontOfSize:16.0f]];
     [self.cancelButton addTarget:self action:@selector(closeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.cancelButton setFrame:CGRectMake(-0.5, currentY, 151, 51)];
     [self addSubview:self.cancelButton];
@@ -271,6 +272,7 @@
     self.okButton.layer.borderWidth = 0.5f;
     self.okButton.layer.borderColor = separatorColor.CGColor;
     [self.okButton setTitle:@"OK" forState:UIControlStateNormal];
+    [self.okButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16.0f]];
     [self.okButton addTarget:self action:@selector(closeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.okButton setFrame:CGRectMake(150, currentY, 151, 51)];
     [self addSubview:self.okButton];
